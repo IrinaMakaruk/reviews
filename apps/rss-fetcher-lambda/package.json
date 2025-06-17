@@ -1,0 +1,20 @@
+{
+	"name": "rss-fetcher-lambda",
+	"type": "module",
+	"main": "dist/handler.js",
+	"scripts": {
+		"deploy": "serverless deploy",
+		"dev": "tsx src/handler.ts"
+	},
+	"dependencies": {
+		"@shared/models": "workspace:*",
+		"fast-xml-parser": "^5.2.5"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.30",
+		"@types/xml2js": "^0.4.14",
+		"serverless-esbuild": "^1.55.1",
+		"tsx": "^4.7.0",
+		"typescript": "^5.4.5"
+	}
+}

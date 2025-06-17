@@ -1,0 +1,51 @@
+# Global ignores
+node_modules/
+.pnpm/
+dist/
+build/
+.cache/
+.vite/
+.serverless/
+turbo/
+coverage/
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+*.log.*
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env
+.env
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+.history/
+.DS_Store
+
+# Turbo repo cache
+.turbo/
+
+# Ignore child app artifacts
+apps/client/node_modules/
+apps/client/dist/
+apps/client/build/
+apps/client/.next/
+apps/client/.cache/
+apps/client/.turbo/
+apps/client/.vite/
+apps/client/coverage/
+apps/client/*.tsbuildinfo
+
+apps/api/node_modules/
+apps/api/dist/
+apps/api/build/
+apps/api/.turbo/
+apps/api/coverage/
+apps/api/*.tsbuildinfo

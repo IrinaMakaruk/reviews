@@ -1,0 +1,16 @@
+service: rss-fetcher-lambda
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ca-central-1
+  environment:
+    APP_ID: '595068606'
+    API_URL: 'https://your-node-api.com/api/reviews'
+    API_KEY: 'your-api-key-if-needed'
+
+functions:
+  fetchReviews:
+    handler: src/handler.fetchReviews
+    events:
+      - schedule: rate(48 hours)
