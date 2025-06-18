@@ -4,7 +4,11 @@ import { pushReviewsToApi } from "./services/push-to-api";
 export const fetchReviews = async () => {
   const appId = process.env.APP_ID!;
   const reviews = await fetchReviewsFromRSS(appId);
-  await pushReviewsToApi(reviews);
+
+  console.log(`[Lambda] Fetched ${reviews.length} recent reviews`);
+
+  const response = await pushReviewsToApi(reviews);
+  console.log("[Lambda] API response:", response?.status, response?.data);
 
   return {
     statusCode: 200,

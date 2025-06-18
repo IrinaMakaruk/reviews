@@ -1,8 +1,9 @@
 import type { Request, Response } from "express";
-import { getRecentReviews, saveNewReviews } from "../services/review-service";
+import { saveNewReviews } from "../services/review-service";
+import { loadReviews } from "../s3-storage";
 
 export async function handleGetReviews(req: Request, res: Response) {
-  const result = await getRecentReviews();
+  const result = await loadReviews();
   res.json(result);
 }
 

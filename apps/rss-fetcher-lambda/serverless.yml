@@ -13,4 +13,5 @@ functions:
   fetchReviews:
     handler: src/handler.fetchReviews
     events:
-      - schedule: rate(48 hours)
+      - schedule: rate(1 hour)
+    timeout: 10

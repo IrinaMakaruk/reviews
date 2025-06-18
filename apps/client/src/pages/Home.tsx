@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { getRecentReviews } from '@/services/reviewService'
 import ReviewList from '@/features/reviews/ReviewList'
+import '@/pages/Home.scss'
+
 import type { Review } from '@shared/models'
 
 export default function Home() {
@@ -12,7 +14,6 @@ export default function Home() {
 
   return (
     <section className="home-page">
-      <h2>Recent Reviews</h2>
       <ReviewList reviews={reviews} />
     </section>
   )

@@ -7,6 +7,7 @@
 		"dev": "tsx src/handler.ts"
 	},
 	"dependencies": {
+		"@aws-sdk/client-s3": "^3.830.0",
 		"@shared/models": "../../packages/models",
 		"fast-xml-parser": "^5.2.5"
 	},
