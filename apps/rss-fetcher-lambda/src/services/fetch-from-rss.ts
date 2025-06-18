@@ -12,7 +12,7 @@ export async function fetchReviewsFromRSS(appId: string): Promise<Review[]> {
 
   const entries = parsed.feed.entry || [];
   const reviews: Review[] = [];
-  const cutoff = Date.now() - 180 * 24 * 60 * 60 * 1000;
+  const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
 
   if (Array.isArray(entries)) {
     for (const entry of entries) {

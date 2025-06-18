@@ -5,13 +5,13 @@ provider:
   runtime: nodejs20.x
   region: ca-central-1
   environment:
-    APP_ID: ${env:APP_ID}
-    API_URL: ${env:API_URL}
-    API_KEY: ${env:API_KEY}
+    APP_ID: "284882215"
+    API_URL: "https://reviews-api-ps6t.onrender.com"
+    API_KEY: "supersecret"
 
 functions:
   fetchReviews:
     handler: src/handler.fetchReviews
     events:
       - schedule: rate(1 hour)
-    timeout: 30
+    timeout: 10
