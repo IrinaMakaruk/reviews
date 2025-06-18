@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import type { Review } from "@shared/models";
 
-const filePath = path.resolve("reviews.json");
+const filePath = path.join(__dirname, "..", "..", "reviews.json");
 
 export async function loadReviews(): Promise<Review[]> {
   try {

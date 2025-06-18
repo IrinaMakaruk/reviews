@@ -8,7 +8,7 @@
 		"dev": "ts-node-dev --respawn src/index.ts"
 	},
 	"dependencies": {
-		"@shared/models": "workspace:*",
+		"@shared/models": "../../packages/models",
 		"cors": "^2.8.5",
 		"express": "^4.18.2"
 	},

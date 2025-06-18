@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "vite",
@@ -15,7 +15,7 @@
     "vercel-build": "npm install && npm run build"
   },
   "dependencies": {
-    "@shared/models": "1.0.0",
+    "@shared/models": "../../packages/models",
     "@ant-design/icons": "^6.0.0",
     "antd": "^5.26.1",
     "react": "^19.1.0",
