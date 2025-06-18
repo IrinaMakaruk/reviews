@@ -6,7 +6,6 @@
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
       "resolveJsonModule": true,
-      "noEmit": true,
       "strict": true,
       "forceConsistentCasingInFileNames": true,
       "skipLibCheck": true,

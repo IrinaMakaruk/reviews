@@ -1,10 +1,9 @@
 {
   "name": "reviews-app",
   "private": true,
-  "workspaces": [
-    "client",
-    "api",
-    "rss-fetcher-lambda"
+	"workspaces": [
+    "apps/*",
+    "packages/*"
   ],
   "version": "1.0.0",
   "description": "",

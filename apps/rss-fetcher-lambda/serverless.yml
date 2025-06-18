@@ -6,8 +6,8 @@ provider:
   region: ca-central-1
   environment:
     APP_ID: '595068606'
-    API_URL: 'https://your-node-api.com/api/reviews'
-    API_KEY: 'your-api-key-if-needed'
+    API_URL: 'https://reviews-api-ps6t.onrender.com'
+    API_KEY: 'supersecret'
 
 functions:
   fetchReviews:

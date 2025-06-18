@@ -3,12 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "node": "20.x",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext .tsx,.ts --quiet",
     "test": "vitest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-build": "npm install && npm run build"
   },
   "dependencies": {
     "@shared/models": "workspace:*",
