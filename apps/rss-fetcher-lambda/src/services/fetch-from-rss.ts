@@ -7,8 +7,6 @@ export async function fetchReviewsFromRSS(appId: string): Promise<Review[]> {
   const res = await fetch(url);
   const xml = await res.text();
 
-  console.log("[fetchReviewsFromRSS] Raw response body:", xml);
-  console.log("Response status:", res.status);
   const parser = new XMLParser();
   const parsed = parser.parse(xml);
 
@@ -24,7 +22,7 @@ export async function fetchReviewsFromRSS(appId: string): Promise<Review[]> {
       reviews.push({
         id: entry.id,
         author: entry.author.name,
-        title: stripHtml(entry.title),
+        title: entry.title,
         content: stripHtml(entry.content),
         score: parseInt(entry["im:rating"], 10),
         submittedAt: entry.updated,

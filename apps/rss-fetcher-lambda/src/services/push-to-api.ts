@@ -15,12 +15,10 @@ export async function pushReviewsToApi(reviews: Review[]): Promise<any> {
 
   if (!res.ok) {
     const errorText = await res.text();
-    console.error("[pushReviewsToApi] Error:", errorText);
     throw new Error(`Failed to push reviews: ${res.statusText}`);
   }
 
   const data = await res.json();
-  console.log("[pushReviewsToApi] response:", data);
 
   return data;
 }
