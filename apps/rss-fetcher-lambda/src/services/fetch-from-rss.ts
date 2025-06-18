@@ -1,5 +1,6 @@
 import { XMLParser } from "fast-xml-parser";
 import type { Review } from "@shared/models";
+import { stripHtml } from "utils/strip-html";
 
 export async function fetchReviewsFromRSS(appId: string): Promise<Review[]> {
   const url = `https://itunes.apple.com/us/rss/customerreviews/id=${appId}/sortBy=mostRecent/xml`;
@@ -23,8 +24,8 @@ export async function fetchReviewsFromRSS(appId: string): Promise<Review[]> {
       reviews.push({
         id: entry.id,
         author: entry.author.name,
-        title: entry.title,
-        content: entry.content,
+        title: stripHtml(entry.title),
+        content: stripHtml(entry.content),
         score: parseInt(entry["im:rating"], 10),
         submittedAt: entry.updated,
       });
