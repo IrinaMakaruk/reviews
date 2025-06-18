@@ -1,25 +1,24 @@
-import { useState, useEffect } from 'react';
-import type { Review } from '@shared/models';
+import { useEffect, useState } from 'react';
 import { getRecentReviews } from '@/services/reviewService';
+import type { Review } from '@shared/models';
 
 export function useReviews() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const data = await getRecentReviews();
-        setReviews(data);
-      } catch (err) {
-        setError(err as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchReviews();
+    getRecentReviews()
+      .then((allReviews) => {
+        const cutoff = Date.now() - 48 * 60 * 60 * 1000;
+        const filtered = allReviews.filter((r) => new Date(r.submittedAt).getTime() > cutoff);
+        setReviews(filtered);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError('Failed to load reviews');
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   return { reviews, loading, error };
