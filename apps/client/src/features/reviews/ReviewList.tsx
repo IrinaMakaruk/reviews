@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewCard from '@/components/ReviewCard/ReviewCard';
 import type { ReviewListProps } from './types';
 import '@/features/reviews/ReviewList.scss';
+import { Review } from '@shared/models';
 
 const ReviewList: React.FC<ReviewListProps> = ({ reviews }) => {
   if (!reviews.length) {
@@ -10,7 +11,7 @@ const ReviewList: React.FC<ReviewListProps> = ({ reviews }) => {
 
   return (
     <div className="review-list">
-      {reviews.map((review) => (
+      {reviews.map((review: Review) => (
         <ReviewCard key={review.id} review={review} />
       ))}
     </div>

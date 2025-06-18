@@ -14,7 +14,6 @@ export async function pushReviewsToApi(reviews: Review[]): Promise<any> {
   });
 
   if (!res.ok) {
-    const errorText = await res.text();
     throw new Error(`Failed to push reviews: ${res.statusText}`);
   }
 

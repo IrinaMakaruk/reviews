@@ -4,7 +4,8 @@
   "main": "dist/handler.js",
   "scripts": {
     "deploy": "serverless deploy",
-    "dev": "tsx src/handler.ts"
+    "dev": "tsx src/handler.ts",
+    "test": "vitest"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.830.0",
@@ -15,7 +16,8 @@
     "@shared/models": "./../../packages/models",
     "@types/node": "^20.19.1",
     "@types/xml2js": "^0.4.14",
-    "tsx": "^4.7.0",
-    "typescript": "^5.4.5"
+    "tsx": "^4.20.3",
+    "typescript": "^5.4.5",
+    "vitest": "^3.2.4"
   }
 }

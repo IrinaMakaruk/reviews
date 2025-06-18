@@ -46,16 +46,22 @@ A full-stack monorepo app that fetches, stores, and displays App Store reviews u
 /apps
   /client             → React frontend
   /api                → Express backend API
+  /rss-fetcher-lambda   → AWS Lambda fetcher
 /packages
   /models             → Shared types/models
-/rss-fetcher-lambda   → AWS Lambda fetcher
 ```
 
 ## 🔐 Run Locally
 
 ```bash
 pnpm install
-pnpm turbo run dev # runs API and Client
+pnpm run dev # runs API and Client
+```
+
+## 🔐 Test Locally
+
+```bash
+pnpm run test
 ```
 
 # Run Lambda manually

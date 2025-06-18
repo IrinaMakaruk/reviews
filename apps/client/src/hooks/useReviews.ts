@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getRecentReviews } from '@/services/reviewService';
 import type { Review } from '@shared/models';
+import { isWithinLast48Hours } from '@/lib/date';
 
 export function useReviews() {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -9,13 +10,13 @@ export function useReviews() {
 
   useEffect(() => {
     getRecentReviews()
-      .then((allReviews) => {
-        const cutoff = Date.now() - 48 * 60 * 60 * 1000;
-        const filtered = allReviews.filter((r) => new Date(r.submittedAt).getTime() > cutoff);
+      .then((allReviews: Review[]) => {
+        const filtered = allReviews.filter((review: Review) =>
+          isWithinLast48Hours(review.submittedAt)
+        );
         setReviews(filtered);
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
         setError('Failed to load reviews');
       })
       .finally(() => setLoading(false));

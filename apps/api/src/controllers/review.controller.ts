@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express';
 import { saveNewReviews } from '../services/review-service';
-import { loadReviews } from '../s3-storage';
+import { Review } from '@shared/models';
+import { loadReviews } from '../repositories/review.repository';
 
 export async function handleGetReviews(req: Request, res: Response) {
   const result = await loadReviews();
@@ -13,11 +14,11 @@ export async function handleSaveReviews(req: Request, res: Response) {
     return res.status(403).json({ error: 'Unauthorized' });
   }
 
-  const reviews = req.body.reviews;
+  const reviews: Review[] = req.body.reviews;
   if (!Array.isArray(reviews)) {
     return res.status(400).json({ error: 'Invalid review format' });
   }
 
-  const added = await saveNewReviews(reviews);
+  const added: number = await saveNewReviews(reviews);
   res.json({ added });
 }
