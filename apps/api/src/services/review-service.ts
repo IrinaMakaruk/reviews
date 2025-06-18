@@ -1,5 +1,5 @@
-import type { Review } from "@shared/models";
-import { loadReviews, saveReviews } from "../s3-storage";
+import type { Review } from '@shared/models';
+import { loadReviews, saveReviews } from '../s3-storage';
 
 export async function saveNewReviews(incoming: Review[]): Promise<number> {
   const existing = await loadReviews();
