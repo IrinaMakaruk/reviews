@@ -1,20 +1,16 @@
-import { useEffect, useState } from 'react'
-import { getRecentReviews } from '@/services/reviewService'
-import ReviewList from '@/features/reviews/ReviewList'
-import '@/pages/Home.scss'
-
-import type { Review } from '@shared/models'
+import { useReviews } from '@/hooks/useReviews';
+import ReviewList from '@/features/reviews/ReviewList';
+import '@/pages/Home.scss';
 
 export default function Home() {
-  const [reviews, setReviews] = useState<Review[]>([])
+  const { reviews, loading, error } = useReviews();
 
-  useEffect(() => {
-    getRecentReviews().then(setReviews).catch(console.error)
-  }, [])
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading reviews</p>;
 
   return (
     <section className="home-page">
       <ReviewList reviews={reviews} />
     </section>
-  )
+  );
 }

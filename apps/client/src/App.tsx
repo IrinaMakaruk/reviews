@@ -1,9 +1,9 @@
-import { Layout } from 'antd'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import './styles/index.scss'
+import { Layout } from 'antd';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import './styles/index.scss';
 
-const { Header, Content, Footer } = Layout
+const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
@@ -15,10 +15,10 @@ function App() {
             <Route path="/" element={<Home />} />
           </Routes>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>© {new Date().getFullYear()} Reviews App</Footer>
+        <Footer style={{ textAlign: 'center' }}>© {new Date().getFullYear()} Iryna Makaruk</Footer>
       </Layout>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
