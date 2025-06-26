@@ -1,4 +1,4 @@
-import type { Review } from "@shared/models/review";
+import type { Review } from "@shared/models";
 
 export async function pushReviewsToApi(reviews: Review[]): Promise<any> {
   const url = process.env.API_URL! ?? "http://localhost:3001";

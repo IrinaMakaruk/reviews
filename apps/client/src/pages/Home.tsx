@@ -2,7 +2,7 @@ import { useReviews } from '@/hooks/useReviews';
 import ReviewList from '@/features/reviews/ReviewList';
 import '@/pages/Home.scss';
 
-export default function Home() {
+const Home = () => {
   const { reviews, loading, error } = useReviews();
 
   if (loading) return <p>Loading...</p>;
@@ -13,4 +13,6 @@ export default function Home() {
       <ReviewList reviews={reviews} />
     </section>
   );
-}
+};
+
+export default Home;

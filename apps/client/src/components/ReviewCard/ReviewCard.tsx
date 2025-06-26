@@ -3,7 +3,7 @@ import type { ReviewCardProps } from './types';
 import './ReviewCard.scss';
 import { formatDate } from '@/lib/date';
 
-export default function ReviewCard({ review }: ReviewCardProps) {
+const ReviewCard = ({ review }: ReviewCardProps) => {
   return (
     <Card className="review-card">
       <div className="review-card__header">
@@ -14,4 +14,6 @@ export default function ReviewCard({ review }: ReviewCardProps) {
       <p className="review-card__content">{review.content}</p>
     </Card>
   );
-}
+};
+
+export default ReviewCard;
